@@ -8,8 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// Enable ARTSEY Right
-#define ARTSEY_RIGHT 1
+// Enable ARDUX Right
+#define ARDUX_RIGHT 1
 
 // ARTS Row
 #define KEY_A 1
@@ -30,5 +30,5 @@
 #define MIDDLE_NONES NONE(0,0,1)
 #define TRAILING_NONES NONE(0,0,5)
 
-// Include main artsey.io keymap
-#include "../../../artsey.dtsi"
+// Include main ardux.io keymap
+#include "../../../ardux.dtsi"

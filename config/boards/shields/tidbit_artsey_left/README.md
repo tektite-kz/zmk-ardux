@@ -1,3 +1,3 @@
 # Tidbit - Left
 
-This directory contians the ARTSEY implementation for the [Tidbit](https://nullbits.co/tidbit/).
+This directory contians the ARDUX implementation for the [Tidbit](https://nullbits.co/tidbit/).

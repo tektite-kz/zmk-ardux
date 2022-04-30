@@ -8,9 +8,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// Enable ARTSEY Left
-#define ARTSEY_LEFT 1
-#define ARTSEY_BIG 1
+// Enable ARDUX Left
+#define ARDUX_LEFT 1
+#define ARDUX_BIG 1
 
 // ARTS Row
 #define KEY_A 3
@@ -22,7 +22,7 @@
 #define KEY_Y 7
 #define KEY_I 6
 #define KEY_O 5
-// Big artsey F1-12 layer keys for combo
+// Big ardux F1-12 layer keys for combo
 #define KEY_F_TOP 4
 #define KEY_F_BOTTOM 9
 
@@ -36,5 +36,5 @@
 #define BIG_BETWEEN_ROW_THREE_THUMBS NONE(0, 0, 0)
 #define BIG_TRAILING_NONES NONE(0, 0, 0)
 
-// Include main artsey.io keymap
-#include "../../../artsey.dtsi"
+// Include main ardux.io keymap
+#include "../../../ardux.dtsi"

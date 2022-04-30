@@ -1,9 +1,9 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_CRADIO_ARTSEY_LEFT || SHIELD_CRADIO_ARTSEY_THUMB_LEFT
+if SHIELD_CRADIO_ARDUX_LEFT || SHIELD_CRADIO_ARDUX_THUMB_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "Artsey L"
+	default "Ardux L"
 
 endif

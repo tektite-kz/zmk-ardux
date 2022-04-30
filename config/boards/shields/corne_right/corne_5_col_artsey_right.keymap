@@ -8,8 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// Enable ARTSEY Right
-#define ARTSEY_RIGHT 1
+// Enable ARDUX Right
+#define ARDUX_RIGHT 1
 
 // ARTS Row
 #define KEY_A 1
@@ -32,5 +32,5 @@
 #define THUMB_2 16
 #define THUMB_3 17
 
-// Include main artsey.io keymap
-#include "../../../artsey.dtsi"
+// Include main ardux.io keymap
+#include "../../../ardux.dtsi"

@@ -12,9 +12,9 @@ jobs:
       matrix:
         include:
           - board: nice_nano
-            shield: corne_artsey_left
+            shield: corne_ardux_left
           - board: nice_nano
-            shield: corne_artsey_right
+            shield: corne_ardux_right
           - board: nice_nano
             shield: the_paintbrush_left
           - board: nice_nano
@@ -40,25 +40,25 @@ jobs:
           - board: nice_nano
             shield: artboard_right
           - board: nice_nano
-            shield: corne_5_col_artsey_left
+            shield: corne_5_col_ardux_left
           - board: nice_nano
-            shield: corne_5_col_artsey_right
+            shield: corne_5_col_ardux_right
           - board: nice_nano
-            shield: corne_5_col_artsey_left_big
+            shield: corne_5_col_ardux_left_big
           - board: nice_nano
-            shield: corne_5_col_artsey_right_big
+            shield: corne_5_col_ardux_right_big
           - board: nice_nano_v2
-            shield: corne_5_col_artsey_left_big
+            shield: corne_5_col_ardux_left_big
           - board: nice_nano_v2
-            shield: corne_5_col_artsey_right_big
+            shield: corne_5_col_ardux_right_big
           - board: bluemicro840_v1
             shield: bluehand_left
           - board: bluemicro840_v1
             shield: bluehand_right
           - board: nice_nano
-            shield: tidbit_artsey_left
+            shield: tidbit_ardux_left
           - board: nice_nano
-            shield: tidbit_artsey_right
+            shield: tidbit_ardux_right
           - board: nice_nano
             shield: the_paintbrush_left_tsraneio
           - board: nice_nano
@@ -68,13 +68,13 @@ jobs:
           - board: nice_nano_v2
             shield: the_paintbrush_right_tsraneio
           - board: nice_nano_v2
-            shield: cradio_artsey_left
+            shield: cradio_ardux_left
           - board: nice_nano_v2
-            shield: cradio_artsey_thumb_left
+            shield: cradio_ardux_thumb_left
           - board: nice_nano_v2
-            shield: cradio_artsey_right
+            shield: cradio_ardux_right
           - board: nice_nano_v2
-            shield: cradio_artsey_thumb_right
+            shield: cradio_ardux_thumb_right
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -107,39 +107,39 @@ jobs:
         run: |
           if [ -n "${{ matrix.shield }}" ]; then
             SHIELD_ARG="-DSHIELD=${{ matrix.shield }}"
-            ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey"
+            ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux"
           else
             SHIELD_ARG=
-            ARTIFACT_NAME="${{ matrix.board }}-zmk-artsey"
+            ARTIFACT_NAME="${{ matrix.board }}-zmk-ardux"
           fi
 
           echo ::set-output name=shield-arg::${SHIELD_ARG}
           echo ::set-output name=artifact-name::${ARTIFACT_NAME}
       - name: Build (west build)
         run: west build -s zmk/app -b ${{ matrix.board }} -- ${{ steps.variables.outputs.shield-arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: ARTSEY implementation dtsi file
+      - name: ARDUX implementation dtsi file
         if: always()
-        run: cat -n config/artsey.dtsi
+        run: cat -n config/ardux.dtsi
       - name: Generated DTS file
         if: always()
         run: cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp
-      - name: Prep artifact (artsey.dtsi)
-        run: cp config/artsey.dtsi ./artsey.dtsi
+      - name: Prep artifact (ardux.dtsi)
+        run: cp config/ardux.dtsi ./ardux.dtsi
       - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}.dts.pre.tmp)
         run: cp build/zephyr/${{ matrix.board }}.dts.pre.tmp ./${{ matrix.shield }}-${{ matrix.board }}.dts.pre.tmp
-      - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey.hex)
-        run: cp build/zephyr/zmk.hex ${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey.hex
-      - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey.uf2)
-        run: cp build/zephyr/zmk.uf2 ${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey.uf2
+      - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.hex)
+        run: cp build/zephyr/zmk.hex ${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.hex
+      - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.uf2)
+        run: cp build/zephyr/zmk.uf2 ${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.uf2
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
           name: '${{ steps.variables.outputs.artifact-name }}'
           path: |
-            artsey.dtsi
+            ardux.dtsi
             ${{ matrix.shield }}-${{ matrix.board }}.dts.pre.tmp
-            ${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey.hex
-            ${{ matrix.shield }}-${{ matrix.board }}-zmk-artsey.uf2
+            ${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.hex
+            ${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.uf2
         continue-on-error: true
   release:
     runs-on: ubuntu-latest
@@ -152,7 +152,7 @@ jobs:
       - name: Generate release text
         id: release_text
         run: >
-          echo "::set-output name=release_text::$(echo '<b>Precompiled firmware files for ARTSEY</b><br><br>
+          echo "::set-output name=release_text::$(echo '<b>Precompiled firmware files for ARDUX</b><br><br>
           Download a firmware file by expanding "Assets", right clicking, and choosing "Save File As" or "Save Link As".
           <br>${{ github.event.inputs.releaseBody }}
           <br>Released on ${{ steps.date.outputs.date }}.
