@@ -1,13 +1,13 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/artseyio
+      url-base: https://github.com/arduxio
     - name: zmk-artsey
-      url-base: https://github.com/artseyio
+      url-base: https://github.com/arduxio
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: artsey
+      revision: ardux
       import: app/west.yml
   self:
     path: config
