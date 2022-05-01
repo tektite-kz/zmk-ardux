@@ -112,9 +112,6 @@ jobs:
       - name: ARDUX implementation dtsi file
         if: always()
         run: cat -n config/ardux.dtsi
-      - name: Generated DTS file
-        if: always()
-        run: cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp
       - name: Prep artifact (ardux.dtsi)
         run: cp config/ardux.dtsi ./ardux.dtsi
       - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}.dts.pre.tmp)
