@@ -114,8 +114,6 @@ jobs:
         run: cat -n config/ardux.dtsi
       - name: Prep artifact (ardux.dtsi)
         run: cp config/ardux.dtsi ./ardux.dtsi
-      - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}.dts.pre.tmp)
-        run: cp build/zephyr/${{ matrix.board }}.dts.pre.tmp ./${{ matrix.shield }}-${{ matrix.board }}.dts.pre.tmp
       - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.hex)
         run: cp build/zephyr/zmk.hex ${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.hex
       - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.uf2)
