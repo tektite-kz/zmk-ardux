@@ -1,7 +1,7 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/arduxio
+      url-base: https://github.com/zmkfirmware
     - name: zmk-ardux
       url-base: https://github.com/arduxio
   projects:
