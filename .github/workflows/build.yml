@@ -69,9 +69,9 @@ jobs:
             shield: cradio_ardux_thumb_right
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Cache west modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         env:
           cache-name: cache-zephyr-modules
         with:
@@ -119,7 +119,7 @@ jobs:
       - name: Prep artifact (${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.uf2)
         run: cp build/zephyr/zmk.uf2 ${{ matrix.shield }}-${{ matrix.board }}-zmk-ardux.uf2
       - name: Archive artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: '${{ steps.variables.outputs.artifact-name }}'
           path: |
@@ -145,7 +145,7 @@ jobs:
           <br>Released on ${{ steps.date.outputs.date }}.
           <br><br>${{ steps.docker_build.outputs.commits }}')"
       - name: Download build artifacts for release
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           path: release
       - name: List files to include in release
