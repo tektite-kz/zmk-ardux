@@ -148,7 +148,7 @@
 #if defined ARDUX_RIGHT
 #define ARDUX_LAYER_CUSTOM                                            \
 		custom {                                                       \
-			label = "Custom";                                          \
+			display-name = "Custom";                                          \
 			bindings = <                                               \
 				LEADING_NONES                                          \
 				&kp C_MUTE &kp INS   &kp C_VOL_UP  &none               \
@@ -161,7 +161,7 @@
 #if defined ARDUX_LEFT
 #define ARDUX_LAYER_CUSTOM                                            \
 		custom {                                                       \
-			label = "Custom";                                          \
+			display-name = "Custom";                                          \
 			bindings = <                                               \
 				LEADING_NONES                                          \
 				&none               &kp C_VOL_UP  &kp INS   &kp C_MUTE \
@@ -290,23 +290,23 @@
  *****************************************/
 / {
 	behaviors {
-		layer_base_kp: layer_base_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_base_kp"; 
-						#binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred"; 
+		layer_base_kp: layer_base_kp { compatible = "zmk,behavior-hold-tap"; display-name = "layer_base_kp";
+						#binding-cells = <2>; tapping-term-ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
 						bindings = <&mo>, <&kp>; };
-		layer_numbers_kp: layer_numbers_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_numbers_kp"; 
-						#binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred"; 
+		layer_numbers_kp: layer_numbers_kp { compatible = "zmk,behavior-hold-tap"; display-name = "layer_numbers_kp";
+						#binding-cells = <2>; tapping-term-ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
 						bindings = <&mo>, <&kp>; };
-		layer_symbols_kp: layer_symbols_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_symbols_kp"; 
-						#binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred"; 
+		layer_symbols_kp: layer_symbols_kp { compatible = "zmk,behavior-hold-tap"; display-name = "layer_symbols_kp";
+						#binding-cells = <2>; tapping-term-ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
 						bindings = <&mo>, <&kp>; };
-		layer_parentheticals_kp: layer_parentheticals_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_parentheticals_kp";
-						#binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
+		layer_parentheticals_kp: layer_parentheticals_kp { compatible = "zmk,behavior-hold-tap"; display-name = "layer_parentheticals_kp";
+						#binding-cells = <2>; tapping-term-ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
 						bindings = <&mo>, <&kp>; };
-		layer_custom_kp: layer_custom_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_custom_kp";
-						#binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
+		layer_custom_kp: layer_custom_kp { compatible = "zmk,behavior-hold-tap"; display-name = "layer_custom_kp";
+						#binding-cells = <2>; tapping-term-ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
 						bindings = <&mo>, <&kp>; };
-		ctrl_alt_kp: ctrl_alt_kp { compatible = "zmk,behavior-hold-tap"; label = "ctrl_alt_kp";
-						#binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
+		ctrl_alt_kp: ctrl_alt_kp { compatible = "zmk,behavior-hold-tap"; display-name = "ctrl_alt_kp";
+						#binding-cells = <2>; tapping-term-ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
 						bindings = <&sk>, <&sk>; };
 	};
 };
@@ -321,7 +321,7 @@
 		compatible = "zmk,keymap";
 		#if defined ARDUX_BIG
 		base {
-			label = "*ARDUX*";
+			display-name = "*ARDUX*";
 			bindings = <
 				BIG_LEADING_NONES
 				&kp MINUS            &layer_parentheticals_kp LAYER_ID_PARENTHETICALS ARDUX_BASE_A    &kp ARDUX_BASE_R     &kp ARDUX_BASE_T     &layer_numbers_kp LAYER_ID_NUMBERS ARDUX_BASE_S
@@ -336,7 +336,7 @@
 		};
 		#else
 		base {
-			label = "ARDUX";
+			display-name = "ARDUX";
 			bindings = <
 				LEADING_NONES
 				&layer_parentheticals_kp LAYER_ID_PARENTHETICALS ARDUX_BASE_A  &kp ARDUX_BASE_R     &kp ARDUX_BASE_T     &layer_numbers_kp LAYER_ID_NUMBERS ARDUX_BASE_S
@@ -350,7 +350,7 @@
 		};
 		#endif
 		numbers {
-			label = "Number";
+			display-name = "Number";
 			bindings = <
 				LEADING_NONES
 				&kp N1                                              &kp N2    &kp N3    &mo LAYER_ID_NUMBERS
@@ -360,7 +360,7 @@
 			>;
 		};
 		symbols {
-			label = "Symbol";
+			display-name = "Symbol";
 			bindings = <
 				LEADING_NONES
 				&kp EXCL                                            &kp BSLH  &kp SEMI  &kp GRAVE
@@ -370,7 +370,7 @@
 			>;
 		};
 		parentheticals {
-			label = "Paren";
+			display-name = "Paren";
 			bindings = <
 				LEADING_NONES
 				&mo LAYER_ID_PARENTHETICALS                         &kp LPAR  &kp RPAR  &kp LBRC
@@ -380,7 +380,7 @@
 			>;
 		};
 		navigation {
-			label = "Nav";
+			display-name = "Nav";
 			bindings = <
 				LEADING_NONES
 				&kp HOME                                            &kp UP    &kp END   &kp PG_UP
@@ -390,7 +390,7 @@
 			>;
 		};
 		bt {
-			label = "BT";
+			display-name = "BT";
 			bindings = <
 				LEADING_NONES
 				&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 ARDUX_BT_TOP
@@ -402,7 +402,7 @@
 		ARDUX_LAYER_CUSTOM
 		#if defined ARDUX_BIG
 		big_ardux_symbol {
-			label = "*Symbol*";
+			display-name = "*Symbol*";
 			bindings = <
 				BIG_LEADING_NONES
 				&kp GRAVE &kp HASH  &kp LBRC &kp RBRC &kp CARET
@@ -416,7 +416,7 @@
 			>;
 		};
 		big_ardux_function {
-			label = "*Func*";
+			display-name = "*Func*";
 			bindings = <
 				BIG_LEADING_NONES
 				&none  &kp F1 &kp F2  &kp F3  &kp F4
@@ -444,7 +444,7 @@
 		compatible = "zmk,keymap";
 		#if defined ARDUX_BIG
 		base {
-			label = "*ARDUX*";
+			display-name = "*ARDUX*";
 			bindings = <
 				BIG_LEADING_NONES
 				&layer_numbers_kp LAYER_ID_NUMBERS ARDUX_BASE_S    &kp ARDUX_BASE_T     &kp ARDUX_BASE_R     &layer_parentheticals_kp LAYER_ID_PARENTHETICALS ARDUX_BASE_A &kp MINUS
@@ -459,7 +459,7 @@
 		};
 		#else
 		base {
-			label = "ARDUX";
+			display-name = "ARDUX";
 			bindings = <
 				LEADING_NONES
 				&layer_numbers_kp LAYER_ID_NUMBERS ARDUX_BASE_S        &kp ARDUX_BASE_T     &kp ARDUX_BASE_R     &layer_parentheticals_kp LAYER_ID_PARENTHETICALS ARDUX_BASE_A
@@ -473,7 +473,7 @@
 		};
 		#endif
 		numbers {
-			label = "Number";
+			display-name = "Number";
 			bindings = <
 				LEADING_NONES
 				&mo LAYER_ID_NUMBERS                        &kp N3    &kp N2    &kp N1
@@ -483,7 +483,7 @@
 			>;
 		};
 		symbols {
-			label = "Symbol";
+			display-name = "Symbol";
 			bindings = <
 				LEADING_NONES
 				&kp GRAVE                                   &kp SEMI  &kp BSLH  &kp EXCL
@@ -493,7 +493,7 @@
 			>;
 		};
 		parentheticals {
-			label = "Paren";
+			display-name = "Paren";
 			bindings = <
 				LEADING_NONES
 				&kp LBRC                                    &kp LPAR  &kp RPAR  &mo LAYER_ID_PARENTHETICALS
@@ -503,7 +503,7 @@
 			>;
 		};
 		navigation {
-			label = "Nav";
+			display-name = "Nav";
 			bindings = <
 				LEADING_NONES
 				&kp PG_UP                                   &kp HOME  &kp UP    &kp END
@@ -513,7 +513,7 @@
 			>;
 		};
 		bt {
-			label = "BT";
+			display-name = "BT";
 			bindings = <
 				LEADING_NONES
 				ARDUX_BT_TOP    &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
@@ -525,7 +525,7 @@
 		ARDUX_LAYER_CUSTOM
 		#if defined ARDUX_BIG
 		big_ardux_symbol {
-			label = "*Symbol*";
+			display-name = "*Symbol*";
 			bindings = <
 				BIG_LEADING_NONES
 				&kp CARET &kp LBRC &kp RBRC &kp HASH  &kp GRAVE
@@ -539,7 +539,7 @@
 			>;
 		};
 		big_ardux_function {
-			label = "*Func*";
+			display-name = "*Func*";
 			bindings = <
 				BIG_LEADING_NONES
 				&kp F4  &kp F3  &kp F2  &kp F1  &none
