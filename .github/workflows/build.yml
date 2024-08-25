@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          shield: the_paintbrush_left
+            shield: the_paintbrush_left
           - board: adafruit_kb2040
     steps:
       - name: Checkout
